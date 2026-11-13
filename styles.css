@@ -240,14 +240,14 @@ p, li {
 
 .readout-label {
   font-family: var(--font-mono);
-  font-size: 0.68rem;
+  font-size: clamp(0.8rem, 1.2vw, 0.95rem);
   letter-spacing: 0.14em;
   color: var(--text-muted);
 }
 
 .readout-val {
   font-family: var(--font-mono);
-  font-size: 0.98rem;
+  font-size: clamp(1.1rem, 1.8vw, 1.4rem);
   font-weight: 600;
   color: var(--text-primary);
 }
