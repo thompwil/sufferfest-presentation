@@ -211,7 +211,7 @@
     // SVG dimensions for Elevation Chart
     const W = 640;
     const H = 360;
-    const padL = 56;
+    const padL = 72;
     const padR = 24;
     const padT = 36;
     const padB = 40;
