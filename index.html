@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mirror Lake Highway Sufferfest</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="deck" id="deck">
+    <!-- Slide 1: Title Slide -->
+    <section class="slide active">
+      <div class="slide-content layout-center">
+        <h1>mirror lake highway <span class="accent">sufferfest</span></h1>
+      </div>
+      <aside class="speaker-notes">
+        Opening title slide: Mirror Lake Highway Sufferfest.
+      </aside>
+    </section>
+
+    <!-- Slide 2: Big Distance & Elevation Numbers -->
+    <section class="slide">
+      <div class="slide-content big-numbers-slide">
+        <div class="big-stat">
+          <div class="big-number">67.2 <span class="accent">MI</span></div>
+          <div class="big-label">DISTANCE (33.6 MI OUT &amp; BACK)</div>
+        </div>
+        <div class="big-divider"></div>
+        <div class="big-stat">
+          <div class="big-number">5,968 <span class="accent-warm">FT</span></div>
+          <div class="big-label">ELEVATION GAIN (10,739' HIGH POINT)</div>
+        </div>
+      </div>
+      <aside class="speaker-notes">
+        67.22 miles total distance (33.61 miles each way) and 5,968 feet of climbing, topping out twice at Bald Mountain Pass (10,739 ft).
+      </aside>
+    </section>
+
+    <!-- Slide 3: Route Map & Interactive Elevation Profile -->
+    <section class="slide">
+      <div class="slide-content gpx-slide">
+        <div class="gpx-header">
+          <div>
+            <span class="kicker">UT-150 Winter Closure Out &amp; Back</span>
+            <h2>The <span class="accent">Route</span></h2>
+          </div>
+          <div class="gpx-readout" id="gpx-readout">
+            <div class="readout-item">
+              <span class="readout-label">MILE</span>
+              <span class="readout-val" id="ro-mile">0.00 mi</span>
+            </div>
+            <div class="readout-item">
+              <span class="readout-label">ELEVATION</span>
+              <span class="readout-val" id="ro-ele">7,778 ft</span>
+            </div>
+            <div class="readout-item">
+              <span class="readout-label">GRADE</span>
+              <span class="readout-val" id="ro-grade">0.0%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2D GPS Track Map + Interactive Elevation Profile -->
+        <div class="gpx-viz-grid">
+          <div class="viz-panel map-panel">
+            <div class="viz-panel-header">
+              <span class="viz-title">GPS TRACK // UT-150</span>
+              <span class="viz-hint">Hover to trace the outbound profile</span>
+            </div>
+            <div class="svg-wrap map-wrap">
+              <svg id="map-svg" viewBox="0 0 360 360" preserveAspectRatio="xMidYMid meet"></svg>
+            </div>
+          </div>
+
+          <div class="viz-panel elevation-panel">
+            <div class="viz-panel-header">
+              <span class="viz-title">ELEVATION PROFILE</span>
+            </div>
+            <div class="svg-wrap" id="elevation-chart-wrap">
+              <svg id="elevation-svg" viewBox="0 0 640 360"></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+      <aside class="speaker-notes">
+        Interactive route map and twin-peak elevation profile. Hover over either view to locate the matching point in the other.
+      </aside>
+    </section>
+    <section class="slide timeline-slide">
+      <div class="slide-content">
+        <h2>The <span class="accent">Timeline</span></h2>
+        <ol class="trip-timeline">
+          <li class="fragment">
+            <span class="timeline-day">Day 1</span>
+            <h3>20 miles in</h3>
+            <p>Ski from Soapstone and set up camp at mile 20.</p>
+          </li>
+          <li class="fragment">
+            <span class="timeline-day">Day 2</span>
+            <h3>27.2 miles round trip</h3>
+            <p>Ski to the Bear River turnaround and return to the same camp for night two.</p>
+          </li>
+          <li class="fragment">
+            <span class="timeline-day">Day 3</span>
+            <h3>20 miles out</h3>
+            <p>Break camp and ski back to Soapstone.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="slide-content">
+        <h2 class="accent">Preparations</h2>
+        <ul class="trip-timeline preparations-list">
+          <li class="fragment">
+            <h3>Temperatures</h3>
+            <p>Temperatures routinely drop to 0°F and sometimes go below zero.</p>
+          </li>
+          <li class="fragment">
+            <h3>Gear</h3>
+            <p>Ski touring gear, sleds, and tents. Hot tent??</p>
+          </li>
+          <li class="fragment">
+            <h3>Experience</h3>
+            <p>We will be moving through avalanche terrain.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="slide-content layout-center">
+        <h1>Questions?</h1>
+      </div>
+    </section>
+  </main>
+
+  <!-- Speaker Notes Drawer -->
+  <aside class="notes-panel hidden" id="notes-panel">
+    <div class="notes-panel-title">Speaker Notes (Press N to toggle)</div>
+    <div class="notes-panel-body" id="notes-body"></div>
+  </aside>
+
+  <!-- Bottom HUD Controls -->
+  <footer class="hud">
+    <div class="hud-group">
+      <button class="hud-btn" id="btn-notes" title="Toggle Speaker Notes (N)">Notes [N]</button>
+      <button class="hud-btn" id="btn-overview" title="Toggle Grid Overview (O)">Overview [O]</button>
+      <button class="hud-btn" id="btn-fullscreen" title="Toggle Fullscreen (F)">Fullscreen [F]</button>
+    </div>
+    <div class="hud-group">
+      <button class="hud-btn" id="btn-prev" title="Previous (Left Arrow)">◀</button>
+      <span class="slide-counter" id="slide-counter">1 / 6</span>
+      <button class="hud-btn" id="btn-next" title="Next (Right Arrow / Space)">▶</button>
+    </div>
+  </footer>
+
+  <!-- Bottom Progress Bar -->
+  <div class="progress-track">
+    <div class="progress-bar" id="progress-bar"></div>
+  </div>
+
+  <script src="route-data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
